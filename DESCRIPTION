@@ -1,0 +1,5 @@
+Solver application package.
+
+This package contains the solver executable from lab03.
+The application solves quadratic equations using coefficients entered by the user.
+The project is built with CMake and packaged with CPack.
