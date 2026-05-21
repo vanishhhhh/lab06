@@ -1,0 +1,142 @@
+name: CPack Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  linux-packages:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y cmake g++ rpm
+
+      - name: Configure
+        run: cmake -S . -B build
+
+      - name: Build
+        run: cmake --build build
+
+      - name: Build DEB package
+        run: |
+          cd build
+          cpack -G DEB
+
+      - name: Build RPM package
+        run: |
+          cd build
+          cpack -G RPM
+
+      - name: Build TGZ package
+        run: |
+          cd build
+          cpack -G TGZ
+
+      - name: Upload Linux packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-packages
+          path: |
+            build/*.deb
+            build/*.rpm
+            build/*.tar.gz
+
+  windows-package:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install WiX Toolset
+        run: choco install wixtoolset -y
+
+      - name: Configure
+        run: cmake -S . -B build
+
+      - name: Build
+        run: cmake --build build --config Release
+
+      - name: Build MSI package
+        run: |
+          cd build
+          cpack -G WIX -C Release
+
+      - name: Upload Windows package
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-package
+          path: build/*.msi
+
+  macos-package:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure
+        run: cmake -S . -B build
+
+      - name: Build
+        run: cmake --build build --config Release
+
+      - name: Build DMG package
+        run: |
+          cd build
+          cpack -G DragNDrop -C Release
+
+      - name: Upload macOS package
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-package
+          path: build/*.dmg
+
+  release:
+    needs:
+      - linux-packages
+      - windows-package
+      - macos-package
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Linux packages
+        uses: actions/download-artifact@v4
+        with:
+          name: linux-packages
+          path: artifacts
+
+      - name: Download Windows package
+        uses: actions/download-artifact@v4
+        with:
+          name: windows-package
+          path: artifacts
+
+      - name: Download macOS package
+        uses: actions/download-artifact@v4
+        with:
+          name: macos-package
+          path: artifacts
+
+      - name: Show artifacts
+        run: ls -la artifacts
+
+      - name: Create GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" artifacts/* \
+            --title "Release ${GITHUB_REF_NAME}" \
+            --notes "CPack packages for solver application." \
+            --verify-tag
