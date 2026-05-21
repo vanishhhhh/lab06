@@ -225,8 +225,8 @@ solver_lib/CMakeFiles/solver_lib.dir/clean:
 # Target rules for target solver/CMakeFiles/solver.dir
 
 # All Build rule for target.
-solver/CMakeFiles/solver.dir/all: formatter_lib/CMakeFiles/formatter.dir/all
 solver/CMakeFiles/solver.dir/all: formatter_ex_lib/CMakeFiles/formatter_ex.dir/all
+solver/CMakeFiles/solver.dir/all: formatter_lib/CMakeFiles/formatter.dir/all
 solver/CMakeFiles/solver.dir/all: solver_lib/CMakeFiles/solver_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f solver/CMakeFiles/solver.dir/build.make solver/CMakeFiles/solver.dir/depend
 	$(MAKE) $(MAKESILENT) -f solver/CMakeFiles/solver.dir/build.make solver/CMakeFiles/solver.dir/build
