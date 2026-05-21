@@ -8,6 +8,7 @@ set(CPACK_PACKAGE_VERSION ${PRINT_VERSION})
 
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Solver application package")
 set(CPACK_PACKAGE_DESCRIPTION "Solver application for solving quadratic equations")
+set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/DESCRIPTION")
 
 set(CPACK_DEBIAN_PACKAGE_NAME "lab06")
 set(CPACK_DEBIAN_PACKAGE_MAINTAINER "vanishhhhh <vanpanvit@gmail.com>")
