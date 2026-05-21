@@ -1,0 +1,14 @@
+/home/vanish/vanishhhhh/workspace/projects/lab06/build/CMakeFiles/edit_cache.dir
+/home/vanish/vanishhhhh/workspace/projects/lab06/build/CMakeFiles/rebuild_cache.dir
+/home/vanish/vanishhhhh/workspace/projects/lab06/build/formatter_lib/CMakeFiles/formatter.dir
+/home/vanish/vanishhhhh/workspace/projects/lab06/build/formatter_lib/CMakeFiles/edit_cache.dir
+/home/vanish/vanishhhhh/workspace/projects/lab06/build/formatter_lib/CMakeFiles/rebuild_cache.dir
+/home/vanish/vanishhhhh/workspace/projects/lab06/build/formatter_ex_lib/CMakeFiles/formatter_ex.dir
+/home/vanish/vanishhhhh/workspace/projects/lab06/build/formatter_ex_lib/CMakeFiles/edit_cache.dir
+/home/vanish/vanishhhhh/workspace/projects/lab06/build/formatter_ex_lib/CMakeFiles/rebuild_cache.dir
+/home/vanish/vanishhhhh/workspace/projects/lab06/build/solver_lib/CMakeFiles/solver_lib.dir
+/home/vanish/vanishhhhh/workspace/projects/lab06/build/solver_lib/CMakeFiles/edit_cache.dir
+/home/vanish/vanishhhhh/workspace/projects/lab06/build/solver_lib/CMakeFiles/rebuild_cache.dir
+/home/vanish/vanishhhhh/workspace/projects/lab06/build/solver/CMakeFiles/solver.dir
+/home/vanish/vanishhhhh/workspace/projects/lab06/build/solver/CMakeFiles/edit_cache.dir
+/home/vanish/vanishhhhh/workspace/projects/lab06/build/solver/CMakeFiles/rebuild_cache.dir
