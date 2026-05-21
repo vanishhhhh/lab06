@@ -1,6 +1,6 @@
 # ChangeLog
 
-## v1.0.3 - 2026-05-21
+## v1.0.4 - 2026-05-21
 
 - Added CPack configuration for packaging the solver application.
 - Added DEB, RPM, TGZ, MSI and DMG package generation.
