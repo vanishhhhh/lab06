@@ -1,0 +1,5 @@
+include(Pack)
+
+set(CPACK_DEBIAN_PACKAGE_NAME <имя проекта>)
+set(CPACK_DEBIAN_MAINTAINER <имя + email>)
+set(CPACK_PACKAGE_VERSION $PRINT_VERSION)
